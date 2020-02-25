@@ -30,12 +30,24 @@ public class ProcessorUtil {
     protected final Elements elements;
     protected final ProcessingEnvironment processingEnv;
 
-    protected ProcessorUtil(ProcessingEnvironment processingEnv) {
+    public ProcessorUtil(ProcessingEnvironment processingEnv) {
         this.messager = processingEnv.getMessager();
         this.filer = processingEnv.getFiler();
         this.types = processingEnv.getTypeUtils();
         this.elements = processingEnv.getElementUtils();
         this.processingEnv = processingEnv;
+    }
+
+    public Messager getMessager() {
+        return messager;
+    }
+
+    public Types getTypes() {
+        return types;
+    }
+
+    public Elements getElements() {
+        return elements;
     }
 
     public List<Element> getAnnotatedMethods(TypeMirror beanType, Class<? extends Annotation> annotation) {
